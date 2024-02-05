@@ -5,6 +5,13 @@
     let fileInput;
     let vanillaInput;
 
+    $: resetFileDropzone = () =>  {
+        if(fileInput) {
+            fileInput.value = null;
+        }
+        files = undefined;
+    }
+
     $: console.log("Skeleton:", fileInput);
     $: console.log("Vanilla: ", vanillaInput);
 </script>
@@ -13,7 +20,7 @@
     <FileDropzone bind:fileInput={fileInput} multiple accept="image/*" name="signage" bind:files/>
 
     <button class="btn variant-ghost-warning" on:click={() => (files = undefined)} type="button">Won't reset files</button>
-    <button class="btn variant-filled-error" on:click={() => fileInput.value = null} type="button">
+    <button class="btn variant-filled-error" on:click={resetFileDropzone} type="button">
         Will reset files
     </button>
     <input type="file" bind:this={vanillaInput} name="vanillainput" multiple/>
