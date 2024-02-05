@@ -21,7 +21,7 @@
 
     <button class="btn variant-ghost-warning" on:click={() => (files = undefined)} type="button">Won't reset files</button>
     <button class="btn variant-filled-error" on:click={resetFileDropzone} type="button">
-        Will reset files
+        should reset files but doesn't
     </button>
     <input type="file" bind:this={vanillaInput} name="vanillainput" multiple/>
     <button class="btn variant-filled-error" on:click={() => vanillaInput.value = null} type="button">
